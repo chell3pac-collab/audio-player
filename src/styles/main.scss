@@ -1,0 +1,38 @@
+@use 'variables' as *;
+@use 'auth';
+@use 'header';
+@use 'sidebar';
+@use 'tracklist';
+@use 'player';
+@use 'profile';
+@use 'fonts';
+@use 'normalize';
+@use 'track-row';
+@use 'app';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Actor', 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  color: $color-text-primary;
+  background: $color-bg;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
+}
+

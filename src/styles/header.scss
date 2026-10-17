@@ -1,0 +1,263 @@
+@use 'variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  height: 69px;
+  padding: 15px 30px 0 47px;
+  background: $color-surface;
+  flex-shrink: 0;
+
+  @media (max-width: 900px) {
+    padding: 0 15px 0 15px;
+    gap: 5px;
+  }
+
+  @media (max-width: 768px) {
+    justify-content: space-between;
+    padding: 15px 16px;
+    gap: 0;
+    height: 60px;
+  }
+
+  &__logo {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    margin-right: auto;
+
+    @media (max-width: 768px) {
+      display: flex;
+      width: 178px;
+      height: 30px;
+    }
+  }
+
+  &__search {
+    flex: 1;
+    max-width: 798px;
+    height: 53px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: $color-background;
+    border-radius: 30px;
+    padding: 15px 0 14px 12px;
+
+    @media (max-width: 820px) {
+      padding: 15px 0 14px 5px;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__search-icon {
+    width: 24px;
+    height: 24px;
+    color: $color-text-secondary;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__search-input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 9%;
+    text-transform: uppercase;
+    color: #A4A4A4;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: 248px;
+    position: relative;
+    background-color: $color-background;
+    border-radius: 30px;
+
+    @media (max-width: 768px) {
+      min-width: 84px;
+      background-color: unset;
+    }
+  }
+
+  &__user-btn {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 6px 74px 6px 13px;
+    border-radius: 24px;
+    transition: background $transition;
+
+    &:hover {
+      background: $color-surface-hover;
+    }
+
+    @media (max-width: 768px) {
+      gap: 8px;
+      padding-right: 10px;
+    }
+  }
+
+  &__avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: $color-primary;
+    color: $color-surface;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    flex-shrink: 0;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    @media (max-width: 768px) {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__username {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 12px;
+    letter-spacing: 1%;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+  }
+
+  &__user-arrow {
+    position: absolute;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    color: $color-text-secondary;
+    transition: transform $transition;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 220px;
+    max-width: calc(100vw - 24px);
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: 12px;
+    box-shadow: 0 12px 32px rgba(31, 36, 48, 0.14);
+    padding: 6px;
+    display: none;
+    flex-direction: column;
+    z-index: 40;
+
+    &--open {
+      display: flex;
+      animation: header-menu-in 0.16s ease;
+    }
+  }
+
+  @keyframes header-menu-in {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  &__menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: $color-text-primary;
+    text-align: left;
+    transition: background $transition;
+
+    &:hover {
+      background: $color-surface-hover;
+    }
+  }
+
+  &__menu-icon {
+    width: 18px;
+    height: 18px;
+    color: $color-text-secondary;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__menu-separator {
+    height: 1px;
+    background: $color-border;
+    margin: 4px 6px;
+  }
+
+  &__menu-item--danger {
+    color: $color-error;
+
+    &__menu-icon {
+      color: $color-error;
+    }
+
+    &:hover {
+      background: rgba($color-error, 0.08);
+    }
+  }
+
+  &__user-btn--open {
+    background: $color-surface-hover;
+  }
+
+  &__user-btn--open .header__user-arrow {
+    transform: rotate(180deg);
+  }
+
+  &__avatar--photo {
+    background-size: cover;
+    background-position: center;
+  }
+}
+

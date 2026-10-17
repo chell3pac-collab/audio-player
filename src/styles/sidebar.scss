@@ -1,0 +1,93 @@
+@use 'variables' as *;
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: $color-surface;
+  border-right: 1px solid $color-border;
+  overflow-y: auto;
+  background-color: #F5F5F5;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &__header {
+    height: 69px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    margin-bottom: 46px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__logo-icon {
+    width: 184px;
+    height: 30px;
+    color: $color-primary;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__nav {
+    height: 94px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 33px 0 30px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: $color-text-primary;
+    transition: all $transition;
+    text-align: left;
+    width: 100%;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 100%;
+
+    &:hover {
+      background: $color-surface-hover;
+    }
+
+    &--active {
+      background: rgba($color-primary, 0.1);
+      color: $color-primary;
+
+      .sidebar__item-icon {
+        color: #FC6D3E;
+      }
+    }
+  }
+
+  &__item-icon {
+    width: 32px;
+    height: 32px;
+    color: #FC6D3E;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__item-text {
+    white-space: nowrap;
+  }
+}
